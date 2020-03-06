@@ -22,9 +22,13 @@ else:
                 name.remove(i)
     #print(len(name), ALL - N)
 
-    number = [0] * S #選んだ数
+    number = [ALL+1] * S #選んだ数
     for i in range(S):
-        number[i] = random.randint(0, len(name) - 1)
+        while True:
+            tmp = random.randint(0, len(name) - 1)
+            if not (tmp in number):
+                number[i] = random.randint(0, len(name) - 1)
+                break
 
     for i in range(S - 1):
         print(name[number[i]], end = ' ')
@@ -33,4 +37,21 @@ else:
 
 """
 2020.03.06 問題点はルーレットの結果に重複があること。
+
+テストケース
+10
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+3
+2
+a
+b
 """
