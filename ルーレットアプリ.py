@@ -21,14 +21,18 @@ else:
             if i == j:
                 name.remove(i)
     #print(len(name), ALL - N)
+    #この時点でのnameは除外する人の名前が除かれたメンバーの名前の配列
 
     number = [ALL+1] * S #選んだ数
+    #print(number)
     for i in range(S):
         while True:
             tmp = random.randint(0, len(name) - 1)
+            #print(tmp, number)
             if not (tmp in number):
-                number[i] = random.randint(0, len(name) - 1)
+                number[i] = tmp
                 break
+    #print(number)
 
     for i in range(S - 1):
         print(name[number[i]], end = ' ')
